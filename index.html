@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Berkeley Shipping</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Berkeley Shipping</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main container-fluid">
+        <div class="row">
+            <div class="col-md-5 offset-md-1" style="padding-right: 30px; padding-left: 30px;">
+                <h1 class="display-4">Need to ship a package?</h1>
+                <br>
+                <h2>Want to send your family gifts for the holidays?</h2>
+                <br>
+                <h4 style="font-weight: 300;">Looking to send a personal surprise to that special someone?</h4>
+                <hr class="my-4">
+                <h3>Send them now for &nbsp;&nbsp;&nbsp;<span
+                        style="color: rgb(95, 95, 95); font-size: 1.5em">CHEAPER</span><br>&nbsp;&nbsp;&nbsp;<span
+                        class="text-secondary"
+                        style="margin-left: 248px; font-size: 1.8em">FASTER</span><br>&nbsp;&nbsp;&nbsp;<span
+                        style="margin-left: 248px; font-size: 2.1em">SMARTER</span></h3>
+
+                <a class="btn btn-dark btn-lg" href="/about.html" role="button">LEARN MORE</a>
+                <br>
+                <br>
+                <form class="mailingListForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="h5" for="mailingEmailInput">Join the Mailing List:</label>
+                            <input style="background: #F6F6F6; height: 50px;" name="mailingEmailInput" type="email"
+                                class="form-control" id="mailingEmailInput">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5" style="padding-right: 80px !important;">
+                <h4>Request Early Now</h4>
+                <br>
+                <form id="locationForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="nameInput">NAME <span class="text-danger">*</span></label>
+                            <input name="nameInput" type="text" class="form-control" id="nameInput">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <label for="emailInput">EMAIL <span class="text-danger">*</span></label>
+                            <input name="emailInput" type="email" class="form-control" id="emailInput">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="phoneInput">PHONE NUMBER</label>
+                            <input name="phoneInput" type="tel" class="form-control" id="phoneInput"
+                                placeholder="XXXXXXXXXX">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="fromInput">FROM <span class="text-danger">*</span></label>
+                            <input name="fromInput" type="text" autocomplete="off" class="places form-control"
+                                id="fromInput" placeholder="i.e. Berkeley, CA">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="toInput">TO <span class="text-danger">*</span></label>
+                            <input name="toInput" type="text" autocomplete="off" class="places form-control"
+                                id="toInput" placeholder="i.e. Newark, NJ">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="itemInput">ITEM (S) <span class="text-danger">*</span></label>
+                            <p class="text-muted" style="font-size: 0.9em;">Max Items: 6</p>
+                            <input name="itemInput" type="text" autocomplete="off" class="form-control" id="itemInput"
+                                placeholder="i.e. Letter">
+                            <br>
+                            <p class="text-danger" id="luggageFull" style="display: none; font-size: 0.9em;">YOUR
+                                LUGGAGE IS FULL!</p>
+                            <br>
+                            <br>
+                            <input type="submit" id="submitRequest" value="REQUEST" class="btn btn-dark btn-lg" />
+                        </div>
+                        <div class="form-group col-md-7">
+                            <button style="margin-top: 70px;" class="btn btn-light" name="addItem"
+                                id="addItem">+</button>
+                            <div id="suitcase-handle"></div>
+                            <div id="suitcase">
+                                <div class="row shelf-row-1">
+                                    <div class="col-md-2 shelf">
+                                        <a class="deleteIcon"><i class="fas fa-minus"></i></a>
+                                    </div>
+                                    <div class="col-md-2 shelf">
+                                        <div class="deleteIcon"><i class="fas fa-minus"></i></div>
+                                    </div>
+                                    <div class="col-md-2 shelf">
+                                        <div class="deleteIcon"><i class="fas fa-minus"></i></div>
+                                    </div>
+                                </div>
+                                <div class="row shelf-row-2">
+                                    <div class="col-md-2 shelf">
+                                        <div class="deleteIcon"><i class="fas fa-minus"></i></div>
+                                    </div>
+                                    <div class="col-md-2 shelf">
+                                        <div class="deleteIcon"><i class="fas fa-minus"></i></div>
+                                    </div>
+                                    <div class="col-md-2 shelf">
+                                        <div class="deleteIcon"><i class="fas fa-minus"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <form class="mailingListForm">
+                <div class="form-row">
+                    <div class="form-group col-md-3 offset-md-1">
+                        <label class="h5" for="mailingEmailInput">Join the Mailing List:</label>
+                        <input name="mailingEmailInput" type="email" class="form-control" id="mailingEmailInput">
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-md-4 offset-md-1">
+                    <h5>Contact Us</h5>
+                    <a href="mailto:berkeleyshipping@gmail.com" class="text-dark">
+                        berkeleyshipping@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-copyright text-center">
+                <div class="text-muted">
+                    © All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="https://kit.fontawesome.com/bf359b7f6b.js" crossorigin="anonymous"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+
+    <script src="js/index.js"></script>
+
+
+</body>
+
+</html>
