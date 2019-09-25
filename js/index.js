@@ -86,6 +86,10 @@ $(document).ready(function () {
             $("#luggageFull").text("Please fill all required fields.");
             $("#luggageFull").css("display", "block");
         } else {
+
+            $("#submitRequest").css("display", "none");
+            $("#loader").css("display", "block");
+
             $.ajax({
                 url: "https://sendit-api.herokuapp.com/requests",
                 type: 'POST',
@@ -103,6 +107,12 @@ $(document).ready(function () {
                 error: function (xhr, status, error) {
                     $("#luggageFull").text("Something went wrong while sending. Try again.");
                     $("#luggageFull").css("display", "block");
+                },
+                complete: function() {
+                    $("#submitRequest").css("display", "block");
+                    $("#loader").css("display", "none");
+
+                    $('#locationForm').trigger("reset");
                 }
             });
 
@@ -154,6 +164,9 @@ $(document).ready(function () {
                         focusConfirm: false,
                         confirmButtonText: 'OK'
                     });
+                },
+                complete: function() {
+                    $('.mailingListForm').trigger("reset");
                 }
             });
         }
