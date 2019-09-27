@@ -1,1 +1,1 @@
-# berkeleyshipping.github.io
+# http://sriharshaguduguntla.com/berkeleyshipping/
